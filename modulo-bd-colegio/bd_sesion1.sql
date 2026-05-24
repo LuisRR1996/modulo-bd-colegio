@@ -54,3 +54,39 @@ create table tb_matriculas(
     idCurso char(6),
     foreign key (idCurso) references tb_curso(idCurso)
 );
+
+use bd_sesion1;
+
+-- Inserción de datos
+insert into tb_estudiante(idEstudiante, nombres,grado,seccion,edad,idCurso)
+values("E00001", "Federico Rojas", "primaria", "C",8,"C00002"),
+("E00002", "Edgar Salas", "primaria", "A",9,"C00001"),
+("E00003", "Carlos Paredes", "primaria", "A",10,"C00003");
+
+insert into tb_curso(idCurso,nombreCurso)
+values ("C00001","Matematicas"),
+("C00002","Comunicación"),
+("C00003","Ingles");
+
+insert into tb_profesores(idProfesor, nombres,turno,idCurso)
+values("PR0001","Brando Nava","Mñ","C00001"),
+("PR0002","Maria Quispe", "Tr","C00003");
+
+select * from tb_profesores;
+
+select * from tb_curso;
+
+select idCurso, nombreCurso As Curso from tb_curso;
+
+-- Promedio
+select AVG(edad) as promedio_Edad from tb_estudiante;
+
+-- Sumatoria
+select sum(edad) as total_Edad from tb_estudiante; 
+
+-- Contar
+select count(edad) as contar_edades from tb_estudiante;
+
+-- Maximo - Minimo
+select max(edad) as maximo_Edad from tb_estudiante;
+select min(edad) as minimo_Edad from tb_estudiante;
